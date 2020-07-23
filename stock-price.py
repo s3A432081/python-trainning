@@ -49,10 +49,9 @@ def create_df(date,stock_no):
     s2['month'] = mlist  #新增月份欄位
     return s2
         
-listDji = ['2330']
+listDji = ['2330','2317']  #輸入個股代號
 for i in range(len(listDji)):
-    result = create_df('202007', listDji[i])
+    result = create_df('202007', listDji[i]) #輸入所需查詢之日期(西元年月)
     print(result)
-    
-print(result.groupby('month').close.count())  #每個月幾個營業日
-print(result.groupby('month').shares.sum())  #每個月累計成交股數
+    print(result.groupby('month').close.count())  #每個月幾個營業日
+    print(result.groupby('month').shares.sum(),"\n")  #每個月累計成交股數
